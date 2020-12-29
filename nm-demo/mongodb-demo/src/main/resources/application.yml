@@ -1,0 +1,16 @@
+server:
+  port: 8083
+
+spring:
+  data:
+    mongodb:
+      host: www.it307.top # mongodb的连接地址
+      port: 27018 # mongodb的来链接端口号
+      database: classic_practice # mongodb的连接的数据库
+      password: secret # 密码 ，这里的密码必须使用单引号括起
+      username: mongoadmin # 用户名
+
+
+logging:
+  level:
+    org.springframework.data.mongodb.core: debug
