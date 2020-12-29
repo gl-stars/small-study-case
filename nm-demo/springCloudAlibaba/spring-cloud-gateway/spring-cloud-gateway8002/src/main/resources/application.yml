@@ -1,0 +1,5 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: gateway8002 # 将这两个微服务名称起成一样的，可以看到网关负载均衡的效果《默认是轮询负载均衡算法》

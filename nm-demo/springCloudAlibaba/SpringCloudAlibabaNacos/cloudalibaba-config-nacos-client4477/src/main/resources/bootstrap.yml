@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: nacosTwo
+  cloud:
+    nacos:
+      discovery: # Nacos 服务注册中心地址
+        server-addr: localhost:8848

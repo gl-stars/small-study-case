@@ -1,0 +1,54 @@
+# =========================
+#       路由写死的方式
+# =========================
+#server:
+#  port: 8259
+#spring:
+#  application:
+#    name: cloud-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: payment_routh #payment_route 路由的ID 没有固定规则但要求唯一,建议配合服务名
+#          uri: http://localhost:8001  #匹配后提供服务的路由地址
+#          predicates:
+#            - Path=/payment/get/**  #断言,路径相匹配的进行路由
+#
+#        - id: payment_routh2
+#          uri: http://localhost:8001
+#          predicates:
+#            - Path=/payment/lb/**
+
+
+
+# =========================
+#       动态路由方式
+# =========================
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  #开启注册中心路由功能,利用微服务名进行路由（如果这里不开启，那么调用时只能使用微服务的  IP:端口  的方式进行调用）
+      #          lower-case-service-id: true
+      routes:
+        - id: gateway8001a # 路由的ID，可以随便写，但是需要保证唯一，建议直接使用工程名称（id 如果不写的话默认是uuid 唯一值）
+          #          uri: http://localhost:8001
+          uri: lb://gateway8001 # 匹配后提供服务的路由地址; 跳转到哪个微服务，就是微服务的名称
+          predicates:
+            - Path=/api-gateway/**  # 跳转到上面uri配置的这个微服务的什么地址上
+          filters:
+            - StripPrefix=1   # 切断路径 StripPrefix=1  去掉一个前缀，如果只为2就去掉两个前缀。localhost:9527/api-gateway/find 最红会将路径的第一个个前缀去掉，最后访问的访问的是 localhost:9527/find，这样就可以实现同一个微服务就可以定义一个前缀，如果都是访问这个微服务的，那么都带上这个前缀就可以了。
+            - PreserveHostHeader #会保留原始请求的host头信息，并原封不动的转发出去，而不是被gateway的http客户端重置
+#        - id: gateway8001b
+#          uri: lb://gateway8001
+#          predicates:
+#            - Path=/list/**
+# 注意缩进问题    ？？？ 一个微服务里面有多个地址怎么配比较简便，如果不同的微服务里面访问地址相同如果配置，例如：第一个微服务里面：/find    第二个微服务里面也有一个访问地址为 /find ????
+# 配置详细参考：https://blog.csdn.net/qq_38380025/article/details/102968559
+
+

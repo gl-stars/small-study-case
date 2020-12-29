@@ -1,0 +1,40 @@
+spring:
+  # 数据源配置
+  datasource:
+    username: root
+    password: mallmysql
+    url: jdbc:mysql://www.it307.top/seata-demo?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    #mysql8版本以上驱动包指定新的驱动类
+    #    driver-class-name: com.mysql.cj.jdbc.Driver
+    #   数据源其他配置, 在 DruidConfig配置类中手动绑定
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+
+seata:
+  tx-service-group: my_test_tx_group # 事务服务组
+  config:
+    type: nacos
+    nacos:
+      namespace:
+      serverAddr: 192.168.164.128:8848
+      group: SEATA_GROUP
+      username: ""
+      password: ""
+  registry:
+    type: nacos
+    nacos:
+      server-addr: 192.168.164.128:8848
+      group : SEATA_GROUP
+      namespace:
+      username: nacos
+      password: nacos
+      application: seata-server # seata服务名称
+      cluster: testCluster # 群组名称
+
+#设置feign客户端超时时间(OpenFeign 默认支持ribbon)
+ribbon:
+  #指的是建立连接所用时间,适用于网络状况正常情况下,两端连接所用时间
+  ReadTimeout: 5000
+  #指的是连接建立后,从服务器获取到可用资源所用时间
+  ConnectTimeout: 5000

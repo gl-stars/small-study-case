@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>nm-demo</artifactId>
+        <groupId>com.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <!-- springcloudAlibaba系列 -->
+    <artifactId>springCloudAlibaba</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- nacos系列 -->
+        <module>SpringCloudAlibabaNacos</module>
+        <!-- gateway 系列 -->
+        <module>spring-cloud-gateway</module>
+        <!-- sentinel 系列 -->
+        <module>spring-cloud-alibaba-sentinel</module>
+        <!-- 分布式事务 Seata 系列-->
+        <module>spring-cloud-seata</module>
+    </modules>
+
+
+</project>

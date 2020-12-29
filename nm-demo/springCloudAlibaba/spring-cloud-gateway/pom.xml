@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springCloudAlibaba</artifactId>
+        <groupId>com.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>spring-cloud-gateway</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <!-- gateway网关配置 -->
+        <module>spring-cloud-gateway9527</module>
+        <!-- 单纯的只是一个微服务，用于从网关调用做测试 -->
+        <module>spring-cloud-gateway8001</module>
+        <!-- 单纯的只是一个微服务，用于从网关调用做测试 -->
+        <module>spring-cloud-gateway8002</module>
+    </modules>
+
+
+</project>

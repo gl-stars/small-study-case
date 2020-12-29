@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <parent>
+        <artifactId>springCloudAlibaba</artifactId>
+        <groupId>com.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>SpringCloudAlibabaNacos</artifactId>
+
+    <modules>
+        <!-- nacos测试（1）实现注册和配置动态刷新 -->
+        <module>cloudalibaba-config-nacos-client3377</module>
+        <!-- nacos测试二 -->
+        <module>cloudalibaba-config-nacos-client4477</module>
+        <!-- nacos测试三 -->
+        <module>cloudalibaba-config-nacos-client5577</module>
+    </modules>
+</project>
