@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>small-study-case</artifactId>
+        <groupId>com.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>nm-demo</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- webSocket案例 -->
+        <module>socketio-demo</module>
+        <!-- mongodb 练习 -->
+        <module>mongodb-demo</module>
+        <!-- 各种经典案例实现 -->
+        <module>classicsCase-demo</module>
+        <!-- SpringSecurityOAuth2 安全框架-->
+        <module>SpringSecurityOAuth2-demo</module>
+        <!-- 这个模块之前是属于正式的，后来需要重新更改，但是又不想删除，就放到这里来做测试了。-->
+        <module>security-oauth</module>
+        <!-- springcloudalibaba系列 -->
+        <module>springCloudAlibaba</module>
+        <!-- 消息队列 -->
+        <module>rocketMQ-demo</module>
+    </modules>
+
+
+</project>
