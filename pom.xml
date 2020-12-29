@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.core</groupId>
+    <artifactId>small-study-case</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <!-- 公共的-->
+        <module>nm-commons</module>
+        <!-- 安全校验框架 -->
+        <module>spring-boot-security-oauth2</module>
+        <!-- 配置类 -->
+        <module>nm-config</module>
+        <!-- 各种功能小demo -->
+        <module>nm-demo</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>14</java.version>
+        <maven.compiler.version>3.7.0</maven.compiler.version>
+        <spring-boot-maven-plugin.version>2.1.1.RELEASE</spring-boot-maven-plugin.version>
+        <spring-boot-dependencies.version>2.3.2.RELEASE</spring-boot-dependencies.version>
+        <spring-cloud-dependencies.version>Hoxton.SR8</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba-dependencies.version>2.2.3.RELEASE</spring-cloud-alibaba-dependencies.version>
+        <spring-social-security.version>1.1.6.RELEASE</spring-social-security.version>
+        <seata.version>1.3.0</seata.version>
+        <mybatis-plus.version>3.2.0</mybatis-plus.version>
+        <druid-starter>1.1.22</druid-starter>
+        <kaptcha.version>2.3.2</kaptcha.version>
+        <commons-io.version>2.6</commons-io.version>
+        <fastjson.version>1.2.62</fastjson.version>
+        <commons-collections4.version>4.2</commons-collections4.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <hutool.version>5.1.4</hutool.version>
+        <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <velocity.version>1.7</velocity.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <netty-socketio.version>1.7.11</netty-socketio.version>
+        <aliyun-sdk-oss.version>3.4.2</aliyun-sdk-oss.version>
+        <qiniu-java-sdk.version>[7.2.0, 7.2.99]</qiniu-java-sdk.version>
+        <fastdfs-client.version>1.26.5</fastdfs-client.version>
+        <groupId.version>3.3.0</groupId.version>
+        <easy-captcha.version>1.6.2</easy-captcha.version>
+<!--        <druid.version>1.1.12</druid.version>-->
+    </properties>
+
+    <!-- 版本匹配推荐：https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E -->
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- 版本控制器-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <!--maven不支持多继承，使用import来依赖管理配置-->
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.social</groupId>
+                <artifactId>spring-social-security</artifactId>
+                <version>${spring-social-security.version}</version>
+            </dependency>
+            <!-- 自定义工程 -->
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>nm-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>nm-config</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- redis相关 -->
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>nm-common-redis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- 权限校验 -->
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>security-oauth2-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>security-oauth2-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- 常用工具类 -->
+            <dependency>
+                <groupId>com.core</groupId>
+                <artifactId>often-Tools</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- IO 操作-->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <!-- 操作集合的工具类，参数考：https://blog.csdn.net/f641385712/article/details/84109098-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${commons-collections4.version}</version>
+            </dependency>
+            <!--工具包-->
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+            <!-- hutool java工具类库  -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <!-- JSON操作 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--mybatis-plus启动器-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--&lt;!&ndash;druid连接池&ndash;&gt;
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>-->
+            <!-- druid 官方 starter -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-starter}</version>
+            </dependency>
+            <!-- kaptcha 用于图形验证码 -->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <!-- 代码生成模板-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+            <!-- 读取配置文件，在代码生成会使用到-->
+            <dependency>
+                <groupId>commons-configuration</groupId>
+                <artifactId>commons-configuration</artifactId>
+                <version>${commons-configuration.version}</version>
+            </dependency>
+            <!-- 实现webSocket功能 参考：https://www.jianshu.com/p/af7d881f7546 -->
+            <dependency>
+                <groupId>com.corundumstudio.socketio</groupId>
+                <artifactId>netty-socketio</artifactId>
+                <version>${netty-socketio.version}</version>
+            </dependency>
+            <!-- 阿里云oss -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+            <!-- 七牛依赖 -->
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>${qiniu-java-sdk.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastdfs-client.version}</version>
+            </dependency>
+            <!--生成二维码zxing-->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${groupId.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>javase</artifactId>
+                <version>${groupId.version}</version>
+            </dependency>
+            <!--验证码生成 EasyCaptcha-->
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>${easy-captcha.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <!--springboot 打包插件-->
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot-maven-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- 指定中央仓库地址 -->
+    <repositories>
+        <repository>
+            <id>aliyun-repos</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- 许可证书 -->
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <!-- 指定开发商-->
+    <developers>
+        <developer>
+            <name>管亮</name>
+            <email>2115g@sina.com</email>
+            <organizationUrl>https://blog.csdn.net/qq_41853447</organizationUrl>
+            <url>https://blog.csdn.net/qq_41853447</url>
+        </developer>
+    </developers>
+</project>
