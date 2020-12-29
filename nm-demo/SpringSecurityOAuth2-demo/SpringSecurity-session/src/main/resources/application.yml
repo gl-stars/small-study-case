@@ -1,0 +1,7 @@
+server:
+  port: 8976
+  servlet:
+    session:
+      timeout: 1m # 设置session有效时间为 1分钟，最低也是1分钟，如果设置的小于1分钟就按一分钟处理。
+      cookie:
+        name: JSESSIONID # 指定浏览器Cookie中关于SessionID保存的那个名称

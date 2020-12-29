@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "66bffb85-0c31-4e22-b8f5-282a6a0e960a",
+		"name": "SpringSecurity-complete测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "测试权限",
+			"item": [
+				{
+					"name": "/find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9784/find",
+							"host": [
+								"localhost"
+							],
+							"port": "9784",
+							"path": [
+								"find"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9784/user",
+							"host": [
+								"localhost"
+							],
+							"port": "9784",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/find/sysuser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9784/find/sysuser",
+							"host": [
+								"localhost"
+							],
+							"port": "9784",
+							"path": [
+								"find",
+								"sysuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "localhost:9784/update",
+							"host": [
+								"localhost"
+							],
+							"port": "9784",
+							"path": [
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "pwd",
+							"value": "123456",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "889900",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:9784/login/from",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"login",
+						"from"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "访问资源",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/code/image",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"code",
+						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "手机验证码登录",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/mobile/form?mobile=admin&code=u390",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"mobile",
+						"form"
+					],
+					"query": [
+						{
+							"key": "mobile",
+							"value": "admin"
+						},
+						{
+							"key": "code",
+							"value": "u390"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "退出登录",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/user/logout",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"user",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前用户一",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/index",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前用户二",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/user/info",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"user",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "查询当前用户三",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9784/user",
+					"host": [
+						"localhost"
+					],
+					"port": "9784",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
