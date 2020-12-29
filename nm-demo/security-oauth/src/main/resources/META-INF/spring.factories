@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.oauth2.security.oauth.config.AuthServerConfig
