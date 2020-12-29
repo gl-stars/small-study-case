@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>small-study-case</artifactId>
+        <groupId>com.core</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>spring-boot-security-oauth2</artifactId>
+    <packaging>pom</packaging>
+
+
+    <modules>
+        <!-- 核心模块 -->
+        <module>security-oauth2-core</module>
+        <!-- 认证的客户端模块，因为有些认证需要在客户端实现某些接口，我写在这里，直接引入就OK，上次的实现方式是直接写在核心认证中，例如：JWT认证就需要在客户端中写加密的东西。 -->
+        <module>security-oauth2-client</module>
+        <!-- 单点登录案例一 -->
+        <module>security-oauth2-sso-client1</module>
+        <!-- 单点登录案例二 -->
+        <module>security-oauth2-sso-client2</module>
+    </modules>
+</project>

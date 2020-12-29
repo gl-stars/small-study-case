@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.client.oauth.config.ResourceConfig,\
+com.client.oauth.config.SecurityHandlerConfig

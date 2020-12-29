@@ -1,0 +1,22 @@
+server:
+  port: 8299
+
+spring:
+  profiles:
+    active: dev
+# bootstrap.yml 优先级高于 application.yml
+
+security:
+  oauth2:
+    client:
+      client-id: client2 # 当前客户端id
+      client-secret: sso-client # 客户端的密码(目前数据库中还没有写，需要将这个加密放到数据库中)
+      user-authorization-uri: http://localhost:9287/authentication/oauth/authorize #请求认证的地址，获取授权码地址
+      access-token-uri: http://localhost:9287/authentication/oauth/token # 请求令牌的地址
+    resource: # 不用JWT校验需要这种方式
+      token-info-uri: http://localhost:9287/authentication/oauth/check_token
+#    resource: # 目前不是用jwt技术
+#      jwt:
+#        # 当用户授权之后会响应一个授权码，重定向到当前应用的 http://localhost:9001/login?code=xxx
+#        # 自动的会对 /login 去获取令牌，获取到令牌后会通过 key-uri 获取到的公钥进行解密然后本地身份认证和授权（Session）
+#        key-uri: http://localhost:9287/authentication/oauth/token_key # 获取公钥
