@@ -1,0 +1,4 @@
+rocketmq:
+  name-server: www.it307.top:9876
+  producer:
+    group: my-group
