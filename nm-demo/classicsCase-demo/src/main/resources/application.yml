@@ -1,0 +1,5 @@
+minio:
+  endpoint: http://www.it307.top:9000 #MinIO服务所在地址
+  bucketName: mall #存储桶名称
+  accessKey: minio #访问的key
+  secretKey: Aa123456 #访问的秘钥
