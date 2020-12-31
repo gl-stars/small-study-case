@@ -3,3 +3,11 @@ minio:
   bucketName: mall #存储桶名称
   accessKey: minio #访问的key
   secretKey: Aa123456 #访问的秘钥
+spring:
+  redis:
+    database: 0
+    host: www.it307.top
+    port: 6379
+    password: mcp2RliHg
+    lettuce:
+      shutdown-timeout: 5000 # 超时时间
