@@ -295,3 +295,5 @@ http://localhost:8401/ok
 目前我测试没有效果
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020101619591138.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODUzNDQ3,size_16,color_FFFFFF,t_70#pic_center)
+
+源码地址：[https://github.com/gl-stars/small-study-case/tree/master/nm-demo/SpringSecurityOAuth2-demo](https://github.com/gl-stars/small-study-case/tree/master/nm-demo/SpringSecurityOAuth2-demo)
